@@ -3,7 +3,11 @@ version: '1.0-SNAPSHOT'
 main: org.pl.practice.Practice
 api-version: '1.21.1'
 commands:
+  help:
+    description: "help me"
   good:
     description: "good"
-
-
+  ability:
+    description: "choose ability"
+  abilitycancel:
+    description: "clear ability"
