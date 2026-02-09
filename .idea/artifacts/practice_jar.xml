@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="practice:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/practice_jar</output-path>
+    <root id="archive" name="practice.jar">
+      <element id="module-output" name="practice.main" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.3.20-Beta2/7c21d85519776867d96e59231a6445fa35e4ad6d/kotlin-stdlib-2.3.20-Beta2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/2.3.20-Beta2/616b730ad387995ca7f790c303394940bd9fb8c/kotlin-stdlib-jdk8-2.3.20-Beta2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/2.3.20-Beta2/ceed983fcd86d81053ebc0d11fe43da8ac954b4/kotlin-stdlib-jdk7-2.3.20-Beta2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

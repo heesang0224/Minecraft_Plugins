@@ -1,0 +1,83 @@
+[22:40:51] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.9+10-LTS; Eclipse Adoptium Temurin-21.0.9+10) on Windows 11 10.0 (amd64)
+[22:40:51] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[22:40:52] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[22:40:52] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'C:\Users\heesa\IdeaProjects\practice\build\libs\practice-1.0-SNAPSHOT-all.jar'...
+[22:40:53] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'C:\Users\heesa\IdeaProjects\practice\build\libs\practice-1.0-SNAPSHOT-all.jar' in 809ms.
+[22:40:53] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[22:40:53] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+ - practice (1.0-SNAPSHOT)
+[22:40:56] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[22:40:58] [ServerMain/INFO]: Loaded 1290 recipes
+[22:40:58] [ServerMain/INFO]: Loaded 1399 advancements
+[22:40:58] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[22:40:58] [Server thread/INFO]: Loading properties
+[22:40:58] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[22:40:59] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[22:40:59] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[22:40:59] [Server thread/INFO]: Using 4 threads for Netty based IO
+[22:40:59] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 2 worker threads, and population gen parallelism of 2 threads
+[22:41:00] [Server thread/INFO]: Default game type: SURVIVAL
+[22:41:00] [Server thread/INFO]: Generating keypair
+[22:41:00] [Server thread/INFO]: Starting Minecraft server on *:25565
+[22:41:00] [Server thread/INFO]: Using default channel type
+[22:41:00] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[22:41:00] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[22:41:00] [Server thread/INFO]: [practice] Loading server plugin practice v1.0-SNAPSHOT
+[22:41:00] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[22:41:00] [Server thread/INFO]: Preparing level "world"
+[22:41:00] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[22:41:01] [Server thread/INFO]: Time elapsed: 746 ms
+[22:41:01] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[22:41:01] [Server thread/INFO]: Time elapsed: 79 ms
+[22:41:01] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[22:41:01] [Server thread/INFO]: Time elapsed: 47 ms
+[22:41:01] [Server thread/INFO]: [practice] Enabling practice v1.0-SNAPSHOT
+[22:41:01] [Server thread/INFO]: [practice] 세상이 적대적?
+[22:41:01] [Server thread/INFO]: [spark] Starting background profiler...
+[22:41:01] [Server thread/INFO]: [spark] The async-profiler engine is not supported for your os/arch (windows11/amd64), so the built-in Java engine will be used instead.
+[22:41:02] [Server thread/INFO]: Done preparing level "world" (1.632s)
+[22:41:02] [Server thread/INFO]: Running delayed init tasks
+[22:41:02] [Server thread/INFO]: Done (11.070s)! For help, type "help"
+[22:41:02] [Server thread/INFO]: Timings Reset
+[22:41:05] [User Authenticator #0/INFO]: UUID of player HeesangVicson is 56dad600-af8b-4be6-8c97-03809e5f0f5e
+[22:41:05] [Server thread/INFO]: HeesangVicson joined the game
+[22:41:06] [Server thread/INFO]: HeesangVicson[/127.0.0.1:49362] logged in with entity id 121 at ([world]45.239608588181525, 64.0, 296.0892473724356)
+[22:41:12] [Server thread/INFO]: HeesangVicson was slain by Pig
+[22:41:29] [Server thread/INFO]: HeesangVicson issued server command: /time set night
+[22:41:29] [Server thread/INFO]: [HeesangVicson: Set the time to 13000]
+[22:41:38] [Server thread/INFO]: HeesangVicson issued server command: /effect give @s minecraft:night_vision infinite
+[22:41:38] [Server thread/INFO]: [HeesangVicson: Applied effect Night Vision to HeesangVicson]
+[22:41:59] [Server thread/INFO]: HeesangVicson was slain by Pig
+[22:42:03] [Server thread/INFO]: HeesangVicson issued server command: /effect give @s minecraft:night_vision infinite
+[22:42:03] [Server thread/INFO]: [HeesangVicson: Applied effect Night Vision to HeesangVicson]
+[22:42:26] [Server thread/INFO]: HeesangVicson was slain by Pig
+[22:42:35] [Server thread/INFO]: HeesangVicson issued server command: /effect give @s minecraft:night_vision infinite
+[22:42:35] [Server thread/INFO]: [HeesangVicson: Applied effect Night Vision to HeesangVicson]
+[22:42:53] [Server thread/INFO]: HeesangVicson was blown up by Creeper
+[22:42:58] [Server thread/INFO]: HeesangVicson issued server command: /stop
+[22:42:58] [Server thread/INFO]: [HeesangVicson: Stopping the server]
+[22:42:58] [Server thread/INFO]: Stopping server
+[22:42:58] [Server thread/INFO]: [practice] Disabling practice v1.0-SNAPSHOT
+[22:42:58] [Server thread/INFO]: Saving players
+[22:42:58] [Server thread/INFO]: HeesangVicson lost connection: Server closed
+[22:42:58] [Server thread/INFO]: HeesangVicson left the game
+[22:42:58] [Server thread/INFO]: Saving worlds
+[22:42:58] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[22:42:58] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[22:42:58] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[22:42:58] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[22:43:00] [Server thread/INFO]: [ChunkHolderManager] Saved 1687 block chunks, 1084 entity chunks, 3 poi chunks in world 'world' in 1.66s
+[22:43:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[22:43:00] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[22:43:00] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[22:43:00] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[22:43:00] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.14s
+[22:43:00] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[22:43:00] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[22:43:00] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[22:43:00] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[22:43:00] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.03s
+[22:43:00] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[22:43:00] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[22:43:00] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[22:43:00] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

@@ -1,0 +1,4 @@
+name: practice
+version: '1.0-SNAPSHOT'
+main: org.pl.practice.Practice
+api-version: '1.21.1'
