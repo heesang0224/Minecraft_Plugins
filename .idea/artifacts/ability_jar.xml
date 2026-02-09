@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="practice:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/practice_jar</output-path>
+  <artifact type="jar" name="ability:jar">
+    <output-path>$USER_HOME$/OneDrive/바탕 화면/plugins</output-path>
     <root id="archive" name="practice.jar">
       <element id="module-output" name="practice.main" />
       <element id="extracted-dir" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/2.3.20-Beta2/7c21d85519776867d96e59231a6445fa35e4ad6d/kotlin-stdlib-2.3.20-Beta2.jar" path-in-jar="/" />

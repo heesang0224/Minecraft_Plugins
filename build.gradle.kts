@@ -5,7 +5,11 @@ plugins {
 }
 
 group = "org.pl"
-version = "1.0-SNAPSHOT"
+version = "1.1-SNAPSHOT"
+
+tasks.shadowJar {
+    archiveBaseName.set("AbilityPvP")
+}
 
 repositories {
     mavenCentral()

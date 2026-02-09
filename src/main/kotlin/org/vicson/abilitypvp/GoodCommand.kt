@@ -1,4 +1,4 @@
-package org.pl.practice
+package org.vicson.abilitypvp
 
 import org.bukkit.Material
 import org.bukkit.command.Command
