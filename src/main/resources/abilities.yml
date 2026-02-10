@@ -1,0 +1,52 @@
+ui:
+  title: "Choose Ability"
+
+dash:
+  menuSlot: 4
+  cooldownSeconds: 3
+  speedMultiplier: 1.6
+  yBoost: 0.5
+  speedAmplifier: 1
+  showPotionParticles: false
+  showPotionIcon: false
+  bonusHealth: 20.0
+
+sonicBoom:
+  menuSlot: 2
+  cooldownSeconds: 10
+  range: 30.0
+  damage: 50.0
+  knockback: 1.0
+  showPotionParticles: false
+  showPotionIcon: false
+  bonusHealth: 40.0
+
+trident:
+  menuSlot: 0
+  cooldownSeconds: 1
+  count: 15
+  speed: 2.5
+  spread: 0.12
+  damageMultiplier: 1.5
+  bonusHealth: 20.0
+
+assassin:
+  menuSlot: 3
+  dashCooldownSeconds: 2
+  stealthCooldownSeconds: 5
+  stealthDurationSeconds: 3
+  dashSpeed: 1.8
+  dashYBoost: 0.2
+  damageMultiplier: 1.5
+  backstabDamage: 30.0
+  bonusHealth: 20.0
+
+bumb:
+  menuSlot: 6
+  cooldownSeconds: 5
+  throwSpeed: 1.6
+  basePower: 4.0
+  powerMultiplier: 1.5
+  breakBlocks: false
+  setFire: false
+  bonusHealth: 25.0
