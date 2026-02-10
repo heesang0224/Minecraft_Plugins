@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "org.pl"
-version = "1.1-SNAPSHOT"
+version = "1.2-SNAPSHOT"
 
 tasks.shadowJar {
     archiveBaseName.set("AbilityPvP")

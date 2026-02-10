@@ -1,5 +1,5 @@
 name: AbilityPvP
-version: '1.1-SNAPSHOT'
+version: '1.2-SNAPSHOT'
 main: org.vicson.abilitypvp.abilitypvp
 api-version: '1.21.1'
 commands:
