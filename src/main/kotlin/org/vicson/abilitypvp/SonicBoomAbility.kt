@@ -2,11 +2,7 @@ package org.vicson.abilitypvp
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
-import org.bukkit.ChatColor
-import org.bukkit.Material
-import org.bukkit.NamespacedKey
-import org.bukkit.Particle
-import org.bukkit.Sound
+import org.bukkit.*
 import org.bukkit.attribute.Attribute
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.enchantments.Enchantment
@@ -20,7 +16,7 @@ import org.bukkit.persistence.PersistentDataType
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
-import java.util.UUID
+import java.util.*
 
 class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
     override val id: String = "sonic_boom"
@@ -28,7 +24,7 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
 
     private val itemKey = NamespacedKey(plugin, "sonic_boom_item")
     private val baseHealthKey = NamespacedKey(plugin, "sonic_boom_base_health")
-    private val cooldownMs = config.getLong("sonicBoom.cooldownSeconds", 10L) * 1000L
+    private val cooldownMs = config.getLong("sonicBoom.cooldownSeconds", 5L) * 1000L
     private val range = config.getDouble("sonicBoom.range", 20.0)
     private val damage = config.getDouble("sonicBoom.damage", 5.0)
     private val knockback = config.getDouble("sonicBoom.knockback", 1.0)

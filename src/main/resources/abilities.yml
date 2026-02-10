@@ -3,7 +3,7 @@ ui:
 
 dash:
   menuSlot: 4
-  cooldownSeconds: 3
+  cooldownSeconds: 2
   speedMultiplier: 1.6
   yBoost: 0.5
   speedAmplifier: 1
@@ -13,7 +13,7 @@ dash:
 
 sonicBoom:
   menuSlot: 2
-  cooldownSeconds: 10
+  cooldownSeconds: 5
   range: 30.0
   damage: 50.0
   knockback: 1.0
@@ -38,15 +38,15 @@ assassin:
   dashSpeed: 1.8
   dashYBoost: 0.2
   damageMultiplier: 1.5
-  backstabDamage: 30.0
+  backstabDamage: 20.0
   bonusHealth: 20.0
 
 bumb:
   menuSlot: 6
-  cooldownSeconds: 5
+  cooldownSeconds: 1
   throwSpeed: 1.6
   basePower: 4.0
-  powerMultiplier: 1.5
+  powerMultiplier: 0.5
   breakBlocks: false
   setFire: false
   bonusHealth: 25.0

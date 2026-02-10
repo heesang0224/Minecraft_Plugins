@@ -17,7 +17,7 @@ import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
 import org.bukkit.util.Vector
-import java.util.UUID
+import java.util.*
 
 class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
     override val id: String = "dash"
@@ -27,7 +27,7 @@ class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
     private val baseHealthKey = NamespacedKey(plugin, "dash_base_health")
     private val dashCooldowns = mutableMapOf<UUID, Long>()
     private val dashConfig = DashConfig(
-        cooldownMs = config.getLong("dash.cooldownSeconds", 3L) * 1000L,
+        cooldownMs = config.getLong("dash.cooldownSeconds", 2L) * 1000L,
         speedMultiplier = config.getDouble("dash.speedMultiplier", 1.6),
         yBoost = config.getDouble("dash.yBoost", 0.5),
         speedAmplifier = config.getInt("dash.speedAmplifier", 1),

@@ -30,10 +30,10 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
     private val projectileKey = NamespacedKey(plugin, "bumb_projectile")
     private val throwSpeed = config.getDouble("bumb.throwSpeed", 1.6)
     private val basePower = config.getDouble("bumb.basePower", 4.0)
-    private val powerMultiplier = config.getDouble("bumb.powerMultiplier", 1.5)
+    private val powerMultiplier = config.getDouble("bumb.powerMultiplier", 0.5)
     private val breakBlocks = config.getBoolean("bumb.breakBlocks", true)
     private val setFire = config.getBoolean("bumb.setFire", false)
-    private val cooldownMs = config.getLong("bumb.cooldownSeconds", 5L) * 1000L
+    private val cooldownMs = config.getLong("bumb.cooldownSeconds", 1L) * 1000L
     private val bonusHealth = config.getDouble("bumb.bonusHealth", 25.0)
     private val cooldowns = mutableMapOf<UUID, Long>()
 

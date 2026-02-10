@@ -34,7 +34,7 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
     private val dashSpeed = config.getDouble("assassin.dashSpeed", 1.8)
     private val dashYBoost = config.getDouble("assassin.dashYBoost", 0.2)
     private val damageMultiplier = config.getDouble("assassin.damageMultiplier", 1.5)
-    private val backstabDamage = config.getDouble("assassin.backstabDamage", 30.0)
+    private val backstabDamage = config.getDouble("assassin.backstabDamage", 20.0)
     private val bonusHealth = config.getDouble("assassin.bonusHealth", 10.0)
     private val dashCooldowns = mutableMapOf<UUID, Long>()
     private val stealthCooldowns = mutableMapOf<UUID, Long>()
@@ -97,7 +97,7 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
         replaceItems(player)
     }
 
-    override fun shouldCancelFallDamage(player: Player): Boolean = false
+    override fun shouldCancelFallDamage(player: Player): Boolean = true
 
     override fun shouldCancelExplosionDamage(player: Player): Boolean = false
 
