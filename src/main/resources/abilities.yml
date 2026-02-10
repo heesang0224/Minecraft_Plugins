@@ -28,7 +28,7 @@ trident:
   speed: 2.5
   spread: 0.12
   damageMultiplier: 1.5
-  bonusHealth: 20.0
+  bonusHealth: 30.0
 
 assassin:
   menuSlot: 3
@@ -41,12 +41,17 @@ assassin:
   backstabDamage: 20.0
   bonusHealth: 20.0
 
+plusMace:
+  menuSlot: 1
+  cooldownSeconds: 1
+  bonusHealth: 30.0
+
 bumb:
   menuSlot: 6
   cooldownSeconds: 1
   throwSpeed: 1.6
-  basePower: 4.0
-  powerMultiplier: 0.5
+  basePower: 2.0
+  powerMultiplier: 1.0
   breakBlocks: false
   setFire: false
   bonusHealth: 25.0

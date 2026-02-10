@@ -2,6 +2,7 @@ package org.vicson.abilitypvp
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
+import org.bukkit.Bukkit
 import org.bukkit.ChatColor
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
@@ -17,10 +18,10 @@ import org.bukkit.inventory.ItemStack
 import org.bukkit.persistence.PersistentDataType
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.util.Vector
-import java.util.UUID
+import java.util.*
 import java.util.concurrent.ThreadLocalRandom
 
-class TridentAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
+class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : Ability {
     override val id: String = "trident"
     override val menuSlot: Int = config.getInt("trident.menuSlot", 0)
 
@@ -31,7 +32,7 @@ class TridentAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
     private val speed = config.getDouble("trident.speed", 2.5)
     private val spread = config.getDouble("trident.spread", 0.12)
     private val damageMultiplier = config.getDouble("trident.damageMultiplier", 1.5)
-    private val bonusHealth = config.getDouble("trident.bonusHealth", 20.0)
+    private val bonusHealth = config.getDouble("trident.bonusHealth", 30.0)
     private val cooldowns = mutableMapOf<UUID, Long>()
 
     override fun createMenuItem(): ItemStack = createTridentItem()
@@ -66,6 +67,11 @@ class TridentAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
             trident.velocity = direction.multiply(speed)
             trident.damage = trident.damage * damageMultiplier
             trident.pickupStatus = AbstractArrow.PickupStatus.DISALLOWED
+            Bukkit.getScheduler().runTaskLater(plugin, Runnable {
+                if (!trident.isDead) {
+                    trident.remove()
+                }
+            }, 60L)
         }
         return true
     }
@@ -90,9 +96,9 @@ class TridentAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
         meta.setDisplayName("${ChatColor.AQUA}Trident")
         meta.lore = listOf(
             "${ChatColor.GRAY}Right-click to throw ${count} tridents.",
-            "${ChatColor.DARK_GRAY}Damage: ${damageMultiplier}x",
+            "${ChatColor.DARK_GRAY}Damage: x${damageMultiplier}",
             "${ChatColor.DARK_GRAY}Cooldown: ${cooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Bonus Health: ${bonusHealth}"
+            "${ChatColor.DARK_GRAY}Bonus HP: +${bonusHealth}"
         )
         meta.addEnchant(Enchantment.RIPTIDE, 3, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)

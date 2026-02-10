@@ -92,7 +92,7 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
             "${ChatColor.GRAY}Right-click to fire a sonic boom.",
             "${ChatColor.DARK_GRAY}Damage: ${damage}",
             "${ChatColor.DARK_GRAY}Cooldown: ${cooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Bonus Health: ${bonusHealth}"
+            "${ChatColor.DARK_GRAY}Bonus HP: +${bonusHealth}"
         )
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)

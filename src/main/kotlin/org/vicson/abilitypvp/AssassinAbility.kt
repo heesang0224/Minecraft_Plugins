@@ -108,9 +108,9 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
         meta.lore = listOf(
             "${ChatColor.GRAY}Right-click to dash.",
             "${ChatColor.GRAY}Sneak + right-click to stealth.",
-            "${ChatColor.DARK_GRAY}Dash CD: ${dashCooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Stealth CD: ${stealthCooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Bonus Health: ${bonusHealth}"
+            "${ChatColor.DARK_GRAY}Cooldown: ${dashCooldownMs / 1000}s",
+            "${ChatColor.DARK_GRAY}Stealth Cooldown: ${stealthCooldownMs / 1000}s",
+            "${ChatColor.DARK_GRAY}Bonus HP: +${bonusHealth}"
         )
         meta.addEnchant(Enchantment.SHARPNESS, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)

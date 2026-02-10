@@ -29,8 +29,8 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
     private val baseHealthKey = NamespacedKey(plugin, "bumb_base_health")
     private val projectileKey = NamespacedKey(plugin, "bumb_projectile")
     private val throwSpeed = config.getDouble("bumb.throwSpeed", 1.6)
-    private val basePower = config.getDouble("bumb.basePower", 4.0)
-    private val powerMultiplier = config.getDouble("bumb.powerMultiplier", 0.5)
+    private val basePower = config.getDouble("bumb.basePower", 2.0)
+    private val powerMultiplier = config.getDouble("bumb.powerMultiplier", 1.0)
     private val breakBlocks = config.getBoolean("bumb.breakBlocks", true)
     private val setFire = config.getBoolean("bumb.setFire", false)
     private val cooldownMs = config.getLong("bumb.cooldownSeconds", 1L) * 1000L
@@ -106,9 +106,9 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
         meta.setDisplayName("${ChatColor.RED}BUMB")
         meta.lore = listOf(
             "${ChatColor.GRAY}Right-click to throw explosive TNT.",
-            "${ChatColor.DARK_GRAY}Impact explosion: ${powerMultiplier}x",
+            "${ChatColor.DARK_GRAY}Impact: x${powerMultiplier}",
             "${ChatColor.DARK_GRAY}Cooldown: ${cooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Bonus Health: ${bonusHealth}"
+            "${ChatColor.DARK_GRAY}Bonus HP: +${bonusHealth}"
         )
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)

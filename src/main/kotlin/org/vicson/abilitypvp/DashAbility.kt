@@ -85,7 +85,7 @@ class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
         meta.lore = listOf(
             "${ChatColor.GRAY}Right-click to dash forward.",
             "${ChatColor.DARK_GRAY}Cooldown: ${dashConfig.cooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Bonus Health: ${dashConfig.bonusHealth}"
+            "${ChatColor.DARK_GRAY}Bonus HP: +${dashConfig.bonusHealth}"
         )
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
