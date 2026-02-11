@@ -196,7 +196,8 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
             "sonic_boom" to SonicBoomAbility(plugin, config),
             "trident" to TridentAbility(plugin, config),
             "assassin" to AssassinAbility(plugin, config),
-            "plus_mace" to PlusMaceAbility(plugin, config)
+            "plus_mace" to PlusMaceAbility(plugin, config),
+            "shield_dash" to ShieldDashAbility(plugin, config)
         )
     }
 

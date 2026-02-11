@@ -46,6 +46,19 @@ plusMace:
   cooldownSeconds: 1
   bonusHealth: 30.0
 
+shieldDash:
+  menuSlot: 5
+  dashCooldownSeconds: 3
+  fangsCooldownSeconds: 5
+  dashSpeed: 1.6
+  damage: 20.0
+  knockback: 1.2
+  range: 3.0
+  fangsDistance: 10.0
+  fangsLayers: 5
+  bonusHealth: 50.0
+  resistanceAmplifier: 1
+
 bumb:
   menuSlot: 6
   cooldownSeconds: 1
