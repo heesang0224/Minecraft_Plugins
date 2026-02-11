@@ -97,8 +97,8 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
         meta.lore = listOf(
             "${ChatColor.GRAY}Right-click to throw ${count} tridents.",
             "${ChatColor.DARK_GRAY}Damage: x${damageMultiplier}",
-            "${ChatColor.DARK_GRAY}Cooldown: ${cooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Bonus HP: +${bonusHealth}"
+            "${ChatColor.BLUE}Cooldown: ${cooldownMs / 1000}s",
+            "${ChatColor.DARK_RED}Bonus HP♥♥♥: +${bonusHealth}"
         )
         meta.addEnchant(Enchantment.RIPTIDE, 3, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
@@ -134,11 +134,16 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
 
     private fun replaceItems(player: Player) {
         val inventory = player.inventory
+        var found = false
         for (i in 0 until inventory.size) {
             val item = inventory.getItem(i) ?: continue
             if (isTridentItem(item)) {
                 inventory.setItem(i, createTridentItem())
+                found = true
             }
+        }
+        if (!found) {
+            giveItem(player)
         }
     }
 

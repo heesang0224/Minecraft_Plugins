@@ -46,6 +46,10 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
     }
 
     fun handleAbilityReloadCommand(sender: CommandSender): Boolean {
+        if (!sender.hasPermission("abilitypvp.reload")) {
+            sender.sendMessage("You do not have permission to use this command.")
+            return true
+        }
         reloadAbilities()
         sender.sendMessage("Ability config reloaded.")
         return true
@@ -96,8 +100,15 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
         val ability = abilities.values.firstOrNull { it.isMenuItem(clicked) } ?: return
 
         val data = player.persistentDataContainer
-        if (data.has(abilityKey, PersistentDataType.STRING)) {
-            player.sendMessage("Ability already selected.")
+        val selectedId = data.get(abilityKey, PersistentDataType.STRING)
+        if (selectedId != null) {
+            if (selectedId == ability.id) {
+                ability.onPlayerJoin(player)
+                ability.refreshItems(player)
+                player.sendMessage("Current ability items refreshed.")
+            } else {
+                player.sendMessage("Ability already selected. Use /abilitycancel first.")
+            }
             player.closeInventory()
             return
         }
@@ -112,6 +123,7 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
         val player = event.player
         val ability = getPlayerAbility(player) ?: return
         ability.onPlayerJoin(player)
+        ability.refreshItems(player)
     }
 
     @EventHandler
@@ -197,7 +209,8 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
             "trident" to TridentAbility(plugin, config),
             "assassin" to AssassinAbility(plugin, config),
             "plus_mace" to PlusMaceAbility(plugin, config),
-            "shield_dash" to ShieldDashAbility(plugin, config)
+            "shield_dash" to ShieldDashAbility(plugin, config),
+            "dragonbow" to DragonBowAbility(plugin, config)
         )
     }
 

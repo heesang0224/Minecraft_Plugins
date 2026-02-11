@@ -103,12 +103,12 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
     private fun createBumbItem(): ItemStack {
         val item = ItemStack(Material.TNT)
         val meta = item.itemMeta
-        meta.setDisplayName("${ChatColor.RED}BUMB")
+        meta.setDisplayName("${ChatColor.GOLD}BUMB")
         meta.lore = listOf(
             "${ChatColor.GRAY}Right-click to throw explosive TNT.",
             "${ChatColor.DARK_GRAY}Impact: x${powerMultiplier}",
-            "${ChatColor.DARK_GRAY}Cooldown: ${cooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Bonus HP: +${bonusHealth}"
+            "${ChatColor.BLUE}Cooldown: ${cooldownMs / 1000}s",
+            "${ChatColor.DARK_RED}Bonus HP♥♥♥: +${bonusHealth}"
         )
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
@@ -144,11 +144,16 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
 
     private fun replaceBumbItems(player: Player) {
         val inventory = player.inventory
+        var found = false
         for (i in 0 until inventory.size) {
             val item = inventory.getItem(i) ?: continue
             if (isBumbItem(item)) {
                 inventory.setItem(i, createBumbItem())
+                found = true
             }
+        }
+        if (!found) {
+            giveBumbItem(player)
         }
     }
 

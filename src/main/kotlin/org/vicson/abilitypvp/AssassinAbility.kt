@@ -108,9 +108,9 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
         meta.lore = listOf(
             "${ChatColor.GRAY}Right-click to dash.",
             "${ChatColor.GRAY}Sneak + right-click to stealth.",
-            "${ChatColor.DARK_GRAY}Cooldown: ${dashCooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Stealth Cooldown: ${stealthCooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Bonus HP: +${bonusHealth}"
+            "${ChatColor.BLUE}Cooldown: ${dashCooldownMs / 1000}s",
+            "${ChatColor.BLUE}Stealth Cooldown: ${stealthCooldownMs / 1000}s",
+            "${ChatColor.DARK_RED}Bonus HP♥♥♥: +${bonusHealth}"
         )
         meta.addEnchant(Enchantment.SHARPNESS, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
@@ -146,11 +146,16 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
 
     private fun replaceItems(player: Player) {
         val inventory = player.inventory
+        var found = false
         for (i in 0 until inventory.size) {
             val item = inventory.getItem(i) ?: continue
             if (isAssassinItem(item)) {
                 inventory.setItem(i, createAssassinItem())
+                found = true
             }
+        }
+        if (!found) {
+            giveItem(player)
         }
     }
 

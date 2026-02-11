@@ -87,12 +87,12 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
     private fun createSonicBoomItem(): ItemStack {
         val item = ItemStack(Material.ECHO_SHARD)
         val meta = item.itemMeta
-        meta.setDisplayName("${ChatColor.DARK_AQUA}Sonic Boom")
+        meta.setDisplayName("${ChatColor.DARK_BLUE}Sonic Boom")
         meta.lore = listOf(
             "${ChatColor.GRAY}Right-click to fire a sonic boom.",
             "${ChatColor.DARK_GRAY}Damage: ${damage}",
-            "${ChatColor.DARK_GRAY}Cooldown: ${cooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Bonus HP: +${bonusHealth}"
+            "${ChatColor.BLUE}Cooldown: ${cooldownMs / 1000}s",
+            "${ChatColor.DARK_RED}Bonus HP♥♥♥: +${bonusHealth}"
         )
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
@@ -128,11 +128,16 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
 
     private fun replaceItems(player: Player) {
         val inventory = player.inventory
+        var found = false
         for (i in 0 until inventory.size) {
             val item = inventory.getItem(i) ?: continue
             if (isSonicBoomItem(item)) {
                 inventory.setItem(i, createSonicBoomItem())
+                found = true
             }
+        }
+        if (!found) {
+            giveItem(player)
         }
     }
 

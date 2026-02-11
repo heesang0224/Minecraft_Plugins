@@ -13,3 +13,8 @@ commands:
     description: "clear ability"
   abilityreload:
     description: "reload ability config"
+    permission: abilitypvp.reload
+permissions:
+  abilitypvp.reload:
+    description: "Allows reloading AbilityPvP config"
+    default: op

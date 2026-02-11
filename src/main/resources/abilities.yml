@@ -51,20 +51,27 @@ shieldDash:
   dashCooldownSeconds: 3
   fangsCooldownSeconds: 5
   dashSpeed: 1.6
-  damage: 20.0
+  dashDamage: 20.0
+  fangsDamage: 12.0
   knockback: 1.2
   range: 3.0
-  fangsDistance: 10.0
+  fangsDistance: 2.5
   fangsLayers: 5
   bonusHealth: 50.0
   resistanceAmplifier: 1
 
 bumb:
   menuSlot: 6
-  cooldownSeconds: 1
+  cooldownSeconds: 0
   throwSpeed: 1.6
   basePower: 2.0
   powerMultiplier: 1.0
   breakBlocks: false
   setFire: false
   bonusHealth: 25.0
+
+dragonbow:
+  menuSlot: 7
+  breathDurationSeconds: 3
+  explosionPower: 1.5
+  bonusHealth: 20.0

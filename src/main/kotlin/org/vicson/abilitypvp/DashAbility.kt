@@ -84,8 +84,8 @@ class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
         meta.setDisplayName("${ChatColor.AQUA}DASH")
         meta.lore = listOf(
             "${ChatColor.GRAY}Right-click to dash forward.",
-            "${ChatColor.DARK_GRAY}Cooldown: ${dashConfig.cooldownMs / 1000}s",
-            "${ChatColor.DARK_GRAY}Bonus HP: +${dashConfig.bonusHealth}"
+            "${ChatColor.BLUE}Cooldown: ${dashConfig.cooldownMs / 1000}s",
+            "${ChatColor.DARK_RED}Bonus HP♥♥♥: +${dashConfig.bonusHealth}"
         )
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
@@ -134,11 +134,16 @@ class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
 
     private fun replaceDashItems(player: Player) {
         val inventory = player.inventory
+        var found = false
         for (i in 0 until inventory.size) {
             val item = inventory.getItem(i) ?: continue
             if (isDashItem(item)) {
                 inventory.setItem(i, createDashItem())
+                found = true
             }
+        }
+        if (!found) {
+            giveDashItem(player)
         }
     }
 
