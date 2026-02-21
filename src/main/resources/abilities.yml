@@ -73,5 +73,26 @@ bumb:
 dragonbow:
   menuSlot: 7
   breathDurationSeconds: 3
+  breathDamage: 2.0
   explosionPower: 1.5
   bonusHealth: 20.0
+
+bloodfrenzy:
+  menuSlot: 8
+  lifeStealPercent: 0.25
+  berserkThresholdRatio: 0.5
+  berserkSpeedAmplifier: 1
+  berserkStrengthAmplifier: 0
+  bonusHealth: 24.0
+
+witherSkull:
+  menuSlot: 9
+  cooldownSeconds: 4
+  projectileSpeed: 1.8
+  explosionPower: 1.0
+  breakBlocks: false
+  splashRange: 3.0
+  hitDamage: 8.0
+  witherDurationSeconds: 4
+  witherAmplifier: 0
+  bonusHealth: 24.0

@@ -1,77 +1,73 @@
-[23:28:24] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.9+10-LTS; Eclipse Adoptium Temurin-21.0.9+10) on Windows 11 10.0 (amd64)
-[23:28:25] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
-[23:28:25] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
-[23:28:25] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'C:\Users\heesa\IdeaProjects\practice\build\libs\AbilityPvP-1.2-SNAPSHOT-all.jar'...
-[23:28:26] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'C:\Users\heesa\IdeaProjects\practice\build\libs\AbilityPvP-1.2-SNAPSHOT-all.jar' in 784ms.
-[23:28:26] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
-[23:28:26] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
+[18:53:14] [ServerMain/INFO]: [bootstrap] Running Java 21 (OpenJDK 64-Bit Server VM 21.0.9+10-LTS; Eclipse Adoptium Temurin-21.0.9+10) on Windows 11 10.0 (amd64)
+[18:53:14] [ServerMain/INFO]: [bootstrap] Loading Paper 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) for Minecraft 1.21.1
+[18:53:15] [ServerMain/INFO]: [PluginInitializerManager] Initializing plugins...
+[18:53:15] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Remapping plugin 'C:\Users\heesa\IdeaProjects\practice\build\libs\AbilityPvP-1.2-SNAPSHOT-all.jar'...
+[18:53:16] [Paper Plugin Remapper Thread - 2/INFO]: [PluginRemapper] Done remapping plugin 'C:\Users\heesa\IdeaProjects\practice\build\libs\AbilityPvP-1.2-SNAPSHOT-all.jar' in 823ms.
+[18:53:16] [ServerMain/INFO]: [PluginInitializerManager] Initialized 1 plugin
+[18:53:16] [ServerMain/INFO]: [PluginInitializerManager] Bukkit plugins (1):
  - AbilityPvP (1.2-SNAPSHOT)
-[23:28:29] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[23:28:30] [ServerMain/INFO]: Loaded 1290 recipes
-[23:28:31] [ServerMain/INFO]: Loaded 1399 advancements
-[23:28:31] [Server thread/INFO]: Starting minecraft server version 1.21.1
-[23:28:31] [Server thread/INFO]: Loading properties
-[23:28:31] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
-[23:28:32] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
-[23:28:32] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[23:28:32] [Server thread/INFO]: Using 4 threads for Netty based IO
-[23:28:32] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 2 worker threads, and population gen parallelism of 2 threads
-[23:28:33] [Server thread/INFO]: Default game type: SURVIVAL
-[23:28:33] [Server thread/INFO]: Generating keypair
-[23:28:33] [Server thread/INFO]: Starting Minecraft server on *:25565
-[23:28:33] [Server thread/INFO]: Using default channel type
-[23:28:33] [Server thread/INFO]: Paper: Using Java compression from Velocity.
-[23:28:33] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
-[23:28:33] [Server thread/INFO]: [AbilityPvP] Loading server plugin AbilityPvP v1.2-SNAPSHOT
-[23:28:33] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[23:28:33] [Server thread/INFO]: Preparing level "world"
-[23:28:33] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[23:28:34] [Server thread/INFO]: Time elapsed: 698 ms
-[23:28:34] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[23:28:34] [Server thread/INFO]: Time elapsed: 99 ms
-[23:28:34] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[23:28:34] [Server thread/INFO]: Time elapsed: 49 ms
-[23:28:34] [Server thread/INFO]: [AbilityPvP] Enabling AbilityPvP v1.2-SNAPSHOT
-[23:28:34] [Server thread/INFO]: [AbilityPvP] Plugin enabled
-[23:28:34] [Server thread/INFO]: [spark] Starting background profiler...
-[23:28:34] [Server thread/INFO]: [spark] The async-profiler engine is not supported for your os/arch (windows11/amd64), so the built-in Java engine will be used instead.
-[23:28:34] [Server thread/INFO]: Done preparing level "world" (1.524s)
-[23:28:34] [Server thread/INFO]: Running delayed init tasks
-[23:28:34] [Server thread/INFO]: Done (10.439s)! For help, type "help"
-[23:28:34] [Server thread/INFO]: Timings Reset
-[23:29:04] [User Authenticator #0/INFO]: UUID of player HeesangVicson is 56dad600-af8b-4be6-8c97-03809e5f0f5e
-[23:29:05] [Server thread/INFO]: HeesangVicson joined the game
-[23:29:05] [Server thread/INFO]: HeesangVicson[/127.0.0.1:50388] logged in with entity id 11 at ([world]-474.8745386269283, 73.0, 324.3838985482387)
-[23:31:18] [Server thread/INFO]: HeesangVicson issued server command: /abilitycancel first
-[23:33:13] [Server thread/INFO]: HeesangVicson fell from a high place
-[23:33:34] [Server thread/INFO]: HeesangVicson issued server command: /advancement
-[23:33:38] [Server thread/INFO]: HeesangVicson issued server command: /ability
-[23:33:44] [Server thread/INFO]: HeesangVicson has made the advancement [Who Needs Rockets?]
-[23:34:10] [Server thread/INFO]: HeesangVicson issued server command: /abilitypvp:ability
-[23:34:14] [Server thread/INFO]: HeesangVicson issued server command: /abilitypvp:abilitycancel
-[23:34:16] [Server thread/INFO]: HeesangVicson lost connection: Disconnected
-[23:34:16] [Server thread/INFO]: HeesangVicson left the game
-[23:34:50] [Server thread/INFO]: Stopping the server
-[23:34:50] [Server thread/INFO]: Stopping server
-[23:34:50] [Server thread/INFO]: [AbilityPvP] Disabling AbilityPvP v1.2-SNAPSHOT
-[23:34:50] [Server thread/INFO]: Saving players
-[23:34:50] [Server thread/INFO]: Saving worlds
-[23:34:50] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[23:34:50] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[23:34:50] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[23:34:50] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[23:34:51] [Server thread/INFO]: [ChunkHolderManager] Saved 752 block chunks, 761 entity chunks, 0 poi chunks in world 'world' in 0.75s
-[23:34:51] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[23:34:51] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[23:34:51] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[23:34:51] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[23:34:51] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 1 entity chunks, 0 poi chunks in world 'world_nether' in 0.00s
-[23:34:51] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[23:34:51] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[23:34:51] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[23:34:51] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[23:34:51] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 0 entity chunks, 0 poi chunks in world 'world_the_end' in 0.00s
-[23:34:51] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[23:34:51] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[23:34:51] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[23:34:51] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[18:53:20] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[18:53:21] [ServerMain/INFO]: Loaded 1290 recipes
+[18:53:21] [ServerMain/INFO]: Loaded 1399 advancements
+[18:53:21] [Server thread/INFO]: Starting minecraft server version 1.21.1
+[18:53:21] [Server thread/INFO]: Loading properties
+[18:53:22] [Server thread/INFO]: This server is running Paper version 1.21.1-133-ver/1.21.1@3cb8529 (2025-03-28T16:14:36Z) (Implementing API version 1.21.1-R0.1-SNAPSHOT)
+[18:53:22] [Server thread/INFO]: [spark] This server bundles the spark profiler. For more information please visit https://docs.papermc.io/paper/profiling
+[18:53:22] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[18:53:22] [Server thread/INFO]: Using 4 threads for Netty based IO
+[18:53:23] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 2 worker threads, and population gen parallelism of 2 threads
+[18:53:23] [Server thread/INFO]: Default game type: SURVIVAL
+[18:53:23] [Server thread/INFO]: Generating keypair
+[18:53:23] [Server thread/INFO]: Starting Minecraft server on *:25565
+[18:53:23] [Server thread/INFO]: Using default channel type
+[18:53:23] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[18:53:23] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[18:53:23] [Server thread/INFO]: [AbilityPvP] Loading server plugin AbilityPvP v1.2-SNAPSHOT
+[18:53:23] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[18:53:23] [Server thread/INFO]: Preparing level "world"
+[18:53:23] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[18:53:24] [Server thread/INFO]: Time elapsed: 469 ms
+[18:53:24] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[18:53:24] [Server thread/INFO]: Time elapsed: 91 ms
+[18:53:24] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[18:53:24] [Server thread/INFO]: Time elapsed: 59 ms
+[18:53:24] [Server thread/INFO]: [AbilityPvP] Enabling AbilityPvP v1.2-SNAPSHOT
+[18:53:24] [Server thread/INFO]: [AbilityPvP] Plugin enabled
+[18:53:24] [Server thread/INFO]: [spark] Starting background profiler...
+[18:53:24] [Server thread/INFO]: [spark] The async-profiler engine is not supported for your os/arch (windows11/amd64), so the built-in Java engine will be used instead.
+[18:53:24] [Server thread/INFO]: Done preparing level "world" (1.307s)
+[18:53:24] [Server thread/INFO]: Running delayed init tasks
+[18:53:24] [Server thread/INFO]: Done (11.045s)! For help, type "help"
+[18:53:24] [Server thread/INFO]: Timings Reset
+[18:53:42] [User Authenticator #0/INFO]: UUID of player HeesangVicson is 56dad600-af8b-4be6-8c97-03809e5f0f5e
+[18:53:43] [Server thread/INFO]: HeesangVicson joined the game
+[18:53:43] [Server thread/INFO]: HeesangVicson[/127.0.0.1:64274] logged in with entity id 4 at ([world]12.209143102818048, -60.0, 0.8986222287223223)
+[18:53:59] [Server thread/INFO]: HeesangVicson issued server command: /abilitypvp:abilityreload
+[18:54:55] [Server thread/INFO]: HeesangVicson was slain by Iron Golem
+[18:55:07] [Server thread/INFO]: HeesangVicson issued server command: /stop
+[18:55:07] [Server thread/INFO]: [HeesangVicson: Stopping the server]
+[18:55:07] [Server thread/INFO]: Stopping server
+[18:55:07] [Server thread/INFO]: [AbilityPvP] Disabling AbilityPvP v1.2-SNAPSHOT
+[18:55:07] [Server thread/INFO]: Saving players
+[18:55:07] [Server thread/INFO]: HeesangVicson lost connection: Server closed
+[18:55:07] [Server thread/INFO]: HeesangVicson left the game
+[18:55:07] [Server thread/INFO]: Saving worlds
+[18:55:07] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Saved 1008 block chunks, 702 entity chunks, 0 poi chunks in world 'world' in 0.32s
+[18:55:07] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_nether' in 0.08s
+[18:55:07] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[18:55:07] [Server thread/INFO]: [ChunkHolderManager] Saved 49 block chunks, 49 entity chunks, 0 poi chunks in world 'world_the_end' in 0.02s
+[18:55:07] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[18:55:07] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[18:55:07] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[18:55:07] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved

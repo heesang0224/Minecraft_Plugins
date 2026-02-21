@@ -5,6 +5,8 @@ import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.ChatColor
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
+import org.bukkit.Particle
+import org.bukkit.Sound
 import org.bukkit.attribute.Attribute
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.enchantments.Enchantment
@@ -60,6 +62,9 @@ class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
         val direction = player.location.direction.normalize()
         val dash = Vector(direction.x, dashConfig.yBoost, direction.z).multiply(dashConfig.speedMultiplier)
         player.velocity = dash
+        player.world.spawnParticle(Particle.CLOUD, player.location.add(0.0, 1.0, 0.0), 20, 0.25, 0.25, 0.25, 0.02)
+        player.world.spawnParticle(Particle.SWEEP_ATTACK, player.location.add(0.0, 1.0, 0.0), 6, 0.2, 0.2, 0.2, 0.0)
+        player.world.playSound(player.location, Sound.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, 1.2f)
         return true
     }
 

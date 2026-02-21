@@ -18,6 +18,7 @@ class abilitypvp : JavaPlugin(), Listener {
         getCommand("ability")?.setExecutor { sender, _, _, _ -> abilityManager.handleAbilityCommand(sender) }
         getCommand("abilitycancel")?.setExecutor { sender, _, _, _ -> abilityManager.handleAbilityCancelCommand(sender) }
         getCommand("abilityreload")?.setExecutor { sender, _, _, _ -> abilityManager.handleAbilityReloadCommand(sender) }
+
     }
 
 

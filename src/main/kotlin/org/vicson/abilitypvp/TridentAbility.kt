@@ -58,6 +58,11 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
         val random = ThreadLocalRandom.current()
         repeat(count) {
             val trident = player.launchProjectile(Trident::class.java)
+            val projectileItem = ItemStack(Material.TRIDENT)
+            val projectileMeta = projectileItem.itemMeta
+            projectileMeta.addEnchant(Enchantment.CHANNELING, 1, true)
+            projectileItem.itemMeta = projectileMeta
+            trident.item = projectileItem
             val offset = Vector(
                 random.nextDouble(-spread, spread),
                 random.nextDouble(-spread, spread),
@@ -101,6 +106,7 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
             "${ChatColor.DARK_RED}Bonus HP♥♥♥: +${bonusHealth}"
         )
         meta.addEnchant(Enchantment.RIPTIDE, 3, true)
+        meta.addEnchant(Enchantment.CHANNELING, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         meta.persistentDataContainer.set(itemKey, PersistentDataType.BYTE, 1.toByte())
         item.itemMeta = meta

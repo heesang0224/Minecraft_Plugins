@@ -5,6 +5,8 @@ import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.ChatColor
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
+import org.bukkit.Particle
+import org.bukkit.Sound
 import org.bukkit.attribute.Attribute
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.enchantments.Enchantment
@@ -189,11 +191,15 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
         val direction = player.location.direction.normalize()
         val dash = Vector(direction.x, dashYBoost, direction.z).multiply(dashSpeed)
         player.velocity = dash
+        player.world.spawnParticle(Particle.SMOKE, player.location.add(0.0, 1.0, 0.0), 24, 0.25, 0.25, 0.25, 0.02)
+        player.world.playSound(player.location, Sound.ENTITY_ENDERMAN_TELEPORT, 0.8f, 1.5f)
     }
 
     private fun applyStealth(player: Player) {
         val effect = PotionEffect(PotionEffectType.INVISIBILITY, stealthDurationTicks.toInt(), 0, true, false, false)
         player.addPotionEffect(effect)
+        player.world.spawnParticle(Particle.PORTAL, player.location.add(0.0, 1.0, 0.0), 28, 0.3, 0.4, 0.3, 0.01)
+        player.world.playSound(player.location, Sound.ENTITY_ILLUSIONER_MIRROR_MOVE, 0.9f, 1.2f)
     }
 
     private fun applyStrength(player: Player) {

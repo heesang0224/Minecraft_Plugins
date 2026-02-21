@@ -13,6 +13,7 @@ import org.bukkit.event.block.Action
 import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.event.inventory.InventoryClickEvent
+import org.bukkit.event.player.PlayerItemDamageEvent
 import org.bukkit.event.player.PlayerInteractEvent
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.persistence.PersistentDataType
@@ -23,6 +24,7 @@ import org.bukkit.inventory.ItemStack
 
 class AbilityManager(private val plugin: JavaPlugin) : Listener {
     private val abilityKey = NamespacedKey(plugin, "ability")
+    private val cancelSlot = 17
     private var abilitiesConfig: YamlConfiguration = loadAbilitiesConfig()
     private var abilityMenuTitle: String = abilitiesConfig.getString("ui.title") ?: "Choose Ability"
     private var abilities: Map<String, Ability> = buildAbilities(abilitiesConfig)
@@ -80,6 +82,7 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
 
     @EventHandler
     fun onEntityDamageByEntity(event: EntityDamageByEntityEvent) {
+        if (event.isCancelled) return
         val player = event.damager as? Player ?: return
         val ability = getPlayerAbility(player) ?: return
         ability.onDamage(player, event.entity, event)
@@ -144,12 +147,22 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
         }
     }
 
+    @EventHandler
+    fun onPlayerItemDamage(event: PlayerItemDamageEvent) {
+        val item = event.item
+        if (abilities.values.any { it.isMenuItem(item) }) {
+            event.isCancelled = true
+        }
+    }
+
     private fun createAbilityMenu(): Inventory {
-        val inventory = Bukkit.createInventory(null, 9, abilityMenuTitle)
+        val requiredSlots = (abilities.values.maxOfOrNull { it.menuSlot } ?: 0) + 2
+        val size = requiredSlots.coerceAtLeast(cancelSlot + 1).let { ((it + 8) / 9) * 9 }
+        val inventory = Bukkit.createInventory(null, size, abilityMenuTitle)
         for (ability in abilities.values) {
             inventory.setItem(ability.menuSlot, ability.createMenuItem())
         }
-        inventory.setItem(8, createCancelItem())
+        inventory.setItem(cancelSlot, createCancelItem())
         return inventory
     }
 
@@ -210,7 +223,9 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
             "assassin" to AssassinAbility(plugin, config),
             "plus_mace" to PlusMaceAbility(plugin, config),
             "shield_dash" to ShieldDashAbility(plugin, config),
-            "dragonbow" to DragonBowAbility(plugin, config)
+            "dragonbow" to DragonBowAbility(plugin, config),
+            "bloodfrenzy" to BloodFrenzyAbility(plugin, config),
+            "wither_skull" to WitherSkullAbility(plugin, config)
         )
     }
 
