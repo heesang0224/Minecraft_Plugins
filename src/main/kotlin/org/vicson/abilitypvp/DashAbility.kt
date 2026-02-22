@@ -2,11 +2,7 @@ package org.vicson.abilitypvp
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
-import org.bukkit.ChatColor
-import org.bukkit.Material
-import org.bukkit.NamespacedKey
-import org.bukkit.Particle
-import org.bukkit.Sound
+import org.bukkit.*
 import org.bukkit.attribute.Attribute
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.enchantments.Enchantment
@@ -29,7 +25,7 @@ class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
     private val baseHealthKey = NamespacedKey(plugin, "dash_base_health")
     private val dashCooldowns = mutableMapOf<UUID, Long>()
     private val dashConfig = DashConfig(
-        cooldownMs = config.getLong("dash.cooldownSeconds", 2L) * 1000L,
+        cooldownMs = config.getLong("dash.cooldownSeconds", 1L) * 1000L,
         speedMultiplier = config.getDouble("dash.speedMultiplier", 1.6),
         yBoost = config.getDouble("dash.yBoost", 0.5),
         speedAmplifier = config.getInt("dash.speedAmplifier", 1),

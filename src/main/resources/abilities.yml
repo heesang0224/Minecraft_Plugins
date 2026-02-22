@@ -3,7 +3,7 @@ ui:
 
 dash:
   menuSlot: 4
-  cooldownSeconds: 2
+  cooldownSeconds: 1
   speedMultiplier: 1.6
   yBoost: 0.5
   speedAmplifier: 1
@@ -87,7 +87,7 @@ bloodfrenzy:
 
 witherSkull:
   menuSlot: 9
-  cooldownSeconds: 1
+  cooldownSeconds: 0
   projectileSpeed: 1.8
   explosionPower: 1.0
   breakBlocks: false
