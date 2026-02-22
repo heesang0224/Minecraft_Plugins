@@ -225,7 +225,8 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
             "shield_dash" to ShieldDashAbility(plugin, config),
             "dragonbow" to DragonBowAbility(plugin, config),
             "bloodfrenzy" to BloodFrenzyAbility(plugin, config),
-            "wither_skull" to WitherSkullAbility(plugin, config)
+            "wither_skull" to WitherSkullAbility(plugin, config),
+            "knockback_stick" to KnockbackStickAbility(plugin, config)
         )
     }
 
