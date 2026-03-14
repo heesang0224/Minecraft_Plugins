@@ -3,7 +3,6 @@ package org.vicson.abilitypvp
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.Bukkit
-import org.bukkit.ChatColor
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
 import org.bukkit.attribute.Attribute
@@ -62,7 +61,7 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
             val projectileMeta = projectileItem.itemMeta
             projectileMeta.addEnchant(Enchantment.CHANNELING, 1, true)
             projectileItem.itemMeta = projectileMeta
-            trident.item = projectileItem
+            trident.itemStack = projectileItem
             val offset = Vector(
                 random.nextDouble(-spread, spread),
                 random.nextDouble(-spread, spread),
@@ -98,13 +97,13 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
     private fun createTridentItem(): ItemStack {
         val item = ItemStack(Material.TRIDENT)
         val meta = item.itemMeta
-        meta.setDisplayName("${ChatColor.AQUA}Trident")
-        meta.lore = listOf(
-            "${ChatColor.GRAY}Right-click to throw ${count} tridents.",
-            "${ChatColor.DARK_GRAY}Damage: x${damageMultiplier}",
-            "${ChatColor.BLUE}Cooldown: ${cooldownMs / 1000}s",
-            "${ChatColor.DARK_RED}Bonus HPâ™¥â™¥â™¥: +${bonusHealth}"
-        )
+        meta.displayName(legacy("&bTrident"))
+        meta.lore(legacyLines(
+            "&7Right-click to throw ${count} tridents.",
+            "&8Damage: x${damageMultiplier}",
+            "&9Cooldown: ${cooldownMs / 1000}s",
+            "&4Bonus HP¢¾¢¾¢¾: +${bonusHealth}"
+        ))
         meta.addEnchant(Enchantment.RIPTIDE, 3, true)
         meta.addEnchant(Enchantment.CHANNELING, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
@@ -168,7 +167,7 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
 
     private fun applyBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
         if (!container.has(baseHealthKey, PersistentDataType.DOUBLE)) {
             container.set(baseHealthKey, PersistentDataType.DOUBLE, attribute.baseValue)
         }
@@ -181,7 +180,7 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
 
     private fun clearBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
         val base = container.get(baseHealthKey, PersistentDataType.DOUBLE)
         if (base != null) {
             attribute.baseValue = base
@@ -192,3 +191,5 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
         }
     }
 }
+
+

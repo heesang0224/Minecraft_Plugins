@@ -82,12 +82,12 @@ class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
     private fun createDashItem(): ItemStack {
         val item = ItemStack(Material.FEATHER)
         val meta = item.itemMeta
-        meta.setDisplayName("${ChatColor.AQUA}DASH")
-        meta.lore = listOf(
-            "${ChatColor.GRAY}Right-click to dash forward.",
-            "${ChatColor.BLUE}Cooldown: ${dashConfig.cooldownMs / 1000}s",
-            "${ChatColor.DARK_RED}Bonus HPâ™¥â™¥â™¥: +${dashConfig.bonusHealth}"
-        )
+        meta.displayName(legacy("&dDASH"))
+        meta.lore(legacyLines(
+            "&7Right-click to dash forward.",
+            "&9Cooldown: ${dashConfig.cooldownMs / 1000}s",
+            "&4Bonus HP¢¾¢¾¢¾: +${dashConfig.bonusHealth}"
+        ))
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         meta.persistentDataContainer.set(dashItemKey, PersistentDataType.BYTE, 1.toByte())
@@ -166,7 +166,7 @@ class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
 
     private fun applyBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
         if (!container.has(baseHealthKey, PersistentDataType.DOUBLE)) {
             container.set(baseHealthKey, PersistentDataType.DOUBLE, attribute.baseValue)
         }
@@ -179,7 +179,7 @@ class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
 
     private fun clearBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
         val base = container.get(baseHealthKey, PersistentDataType.DOUBLE)
         if (base != null) {
             attribute.baseValue = base
@@ -200,3 +200,5 @@ class DashAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability {
         val bonusHealth: Double
     )
 }
+
+

@@ -87,13 +87,13 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
     private fun createSonicBoomItem(): ItemStack {
         val item = ItemStack(Material.ECHO_SHARD)
         val meta = item.itemMeta
-        meta.setDisplayName("${ChatColor.DARK_BLUE}Sonic Boom")
-        meta.lore = listOf(
-            "${ChatColor.GRAY}Right-click to fire a sonic boom.",
-            "${ChatColor.DARK_GRAY}Damage: ${damage}",
-            "${ChatColor.BLUE}Cooldown: ${cooldownMs / 1000}s",
-            "${ChatColor.DARK_RED}Bonus HPâ™¥â™¥â™¥: +${bonusHealth}"
-        )
+        meta.displayName(legacy("&1Sonic Boom"))
+        meta.lore(legacyLines(
+            "&7Right-click to fire a sonic boom.",
+            "&8Damage: ${damage}",
+            "&9Cooldown: ${cooldownMs / 1000}s",
+            "&4Bonus HP¢¾¢¾¢¾: +${bonusHealth}"
+        ))
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         meta.persistentDataContainer.set(itemKey, PersistentDataType.BYTE, 1.toByte())
@@ -172,7 +172,7 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
 
     private fun applyBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
         if (!container.has(baseHealthKey, PersistentDataType.DOUBLE)) {
             container.set(baseHealthKey, PersistentDataType.DOUBLE, attribute.baseValue)
         }
@@ -185,7 +185,7 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
 
     private fun clearBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
         val base = container.get(baseHealthKey, PersistentDataType.DOUBLE)
         if (base != null) {
             attribute.baseValue = base
@@ -205,3 +205,5 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
         return result?.hitEntity
     }
 }
+
+

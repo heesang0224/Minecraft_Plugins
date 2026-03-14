@@ -1,9 +1,9 @@
 package org.vicson.abilitypvp
 
+import net.kyori.adventure.text.Component
 import org.bukkit.Bukkit
-import org.bukkit.ChatColor
-import org.bukkit.NamespacedKey
 import org.bukkit.Material
+import org.bukkit.NamespacedKey
 import org.bukkit.command.CommandSender
 import org.bukkit.configuration.file.YamlConfiguration
 import org.bukkit.entity.Player
@@ -26,7 +26,7 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
     private val abilityKey = NamespacedKey(plugin, "ability")
     private val cancelSlot = 17
     private var abilitiesConfig: YamlConfiguration = loadAbilitiesConfig()
-    private var abilityMenuTitle: String = abilitiesConfig.getString("ui.title") ?: "Choose Ability"
+    private var abilityMenuTitle: Component = legacy(abilitiesConfig.getString("ui.title") ?: "Choose Ability")
     private var abilities: Map<String, Ability> = buildAbilities(abilitiesConfig)
     private var abilityListeners: List<Listener> = collectAbilityListeners(abilities)
 
@@ -90,7 +90,7 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
 
     @EventHandler
     fun onInventoryClick(event: InventoryClickEvent) {
-        if (event.view.title != abilityMenuTitle) return
+        if (event.view.title() != abilityMenuTitle) return
         event.isCancelled = true
 
         val player = event.whoClicked as? Player ?: return
@@ -181,11 +181,11 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
     private fun createCancelItem(): ItemStack {
         val item = ItemStack(Material.BARRIER)
         val meta = item.itemMeta
-        meta.setDisplayName("${ChatColor.RED}Ability Cancel")
-        meta.lore = listOf(
-            "${ChatColor.GRAY}Click to clear your current ability.",
-            "${ChatColor.DARK_GRAY}This will remove ability items."
-        )
+        meta.displayName(legacy("&cAbility Cancel"))
+        meta.lore(legacyLines(
+            "&7Click to clear your current ability.",
+            "&8This will remove ability items."
+        ))
         item.itemMeta = meta
         return item
     }
@@ -202,7 +202,7 @@ class AbilityManager(private val plugin: JavaPlugin) : Listener {
     private fun reloadAbilities() {
         unregisterAbilityListeners()
         abilitiesConfig = loadAbilitiesConfig()
-        abilityMenuTitle = abilitiesConfig.getString("ui.title") ?: "Choose Ability"
+        abilityMenuTitle = legacy(abilitiesConfig.getString("ui.title") ?: "Choose Ability")
         abilities = buildAbilities(abilitiesConfig)
         abilityListeners = collectAbilityListeners(abilities)
         registerAbilityListeners()

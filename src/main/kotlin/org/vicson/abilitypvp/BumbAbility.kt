@@ -2,7 +2,6 @@ package org.vicson.abilitypvp
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
-import org.bukkit.ChatColor
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
 import org.bukkit.attribute.Attribute
@@ -103,13 +102,13 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
     private fun createBumbItem(): ItemStack {
         val item = ItemStack(Material.TNT)
         val meta = item.itemMeta
-        meta.setDisplayName("${ChatColor.GOLD}BUMB")
-        meta.lore = listOf(
-            "${ChatColor.GRAY}Right-click to throw explosive TNT.",
-            "${ChatColor.DARK_GRAY}Impact: x${powerMultiplier}",
-            "${ChatColor.BLUE}Cooldown: ${cooldownMs / 1000}s",
-            "${ChatColor.DARK_RED}Bonus HPâ™¥â™¥â™¥: +${bonusHealth}"
-        )
+        meta.displayName(legacy("&6BUMB"))
+        meta.lore(legacyLines(
+            "&7Right-click to throw explosive TNT.",
+            "&8Impact: x${powerMultiplier}",
+            "&9Cooldown: ${cooldownMs / 1000}s",
+            "&4Bonus HP¢¾¢¾¢¾: +${bonusHealth}"
+        ))
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         meta.persistentDataContainer.set(bumbItemKey, PersistentDataType.BYTE, 1.toByte())
@@ -177,7 +176,7 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
 
     private fun applyBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
         if (!container.has(baseHealthKey, PersistentDataType.DOUBLE)) {
             container.set(baseHealthKey, PersistentDataType.DOUBLE, attribute.baseValue)
         }
@@ -190,7 +189,7 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
 
     private fun clearBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
         val base = container.get(baseHealthKey, PersistentDataType.DOUBLE)
         if (base != null) {
             attribute.baseValue = base
@@ -201,3 +200,5 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
         }
     }
 }
+
+

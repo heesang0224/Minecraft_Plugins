@@ -2,7 +2,6 @@ package org.vicson.abilitypvp
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
-import org.bukkit.ChatColor
 import org.bukkit.Material
 import org.bukkit.NamespacedKey
 import org.bukkit.Particle
@@ -106,14 +105,14 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
     private fun createAssassinItem(): ItemStack {
         val item = ItemStack(Material.IRON_SWORD)
         val meta = item.itemMeta
-        meta.setDisplayName("${ChatColor.DARK_RED}Assassin")
-        meta.lore = listOf(
-            "${ChatColor.GRAY}Right-click to dash.",
-            "${ChatColor.GRAY}Sneak + right-click to stealth.",
-            "${ChatColor.BLUE}Cooldown: ${dashCooldownMs / 1000}s",
-            "${ChatColor.BLUE}Stealth Cooldown: ${stealthCooldownMs / 1000}s",
-            "${ChatColor.DARK_RED}Bonus HPâ™¥â™¥â™¥: +${bonusHealth}"
-        )
+        meta.displayName(legacy("&4Assassin"))
+        meta.lore(legacyLines(
+            "&7Right-click to dash.",
+            "&7Sneak + right-click to stealth.",
+            "&9Cooldown: ${dashCooldownMs / 1000}s",
+            "&9Stealth Cooldown: ${stealthCooldownMs / 1000}s",
+            "&4Bonus HP¢¾¢¾¢¾: +${bonusHealth}"
+        ))
         meta.addEnchant(Enchantment.SHARPNESS, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         meta.persistentDataContainer.set(itemKey, PersistentDataType.BYTE, 1.toByte())
@@ -213,7 +212,7 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
 
     private fun applyBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
         if (!container.has(baseHealthKey, PersistentDataType.DOUBLE)) {
             container.set(baseHealthKey, PersistentDataType.DOUBLE, attribute.baseValue)
         }
@@ -226,7 +225,7 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
 
     private fun clearBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
         val base = container.get(baseHealthKey, PersistentDataType.DOUBLE)
         if (base != null) {
             attribute.baseValue = base
@@ -237,3 +236,5 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
         }
     }
 }
+
+
