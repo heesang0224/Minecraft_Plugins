@@ -33,6 +33,15 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
     private val damageMultiplier = config.getDouble("trident.damageMultiplier", 1.5)
     private val bonusHealth = config.getDouble("trident.bonusHealth", 30.0)
     private val cooldowns = mutableMapOf<UUID, Long>()
+    private val displayName = config.getString("trident.displayName") ?: "&bTrident"
+    private val loreTemplate = config.getStringList("trident.lore").ifEmpty {
+        listOf(
+            "&7Right-click to throw {count} tridents.",
+            "&8Damage: x{damageMultiplier}",
+            "&9Cooldown: {cooldown}s",
+            "&4Bonus HP: +{bonusHealth}"
+        )
+    }
 
     override fun createMenuItem(): ItemStack = createTridentItem()
 
@@ -97,13 +106,14 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
     private fun createTridentItem(): ItemStack {
         val item = ItemStack(Material.TRIDENT)
         val meta = item.itemMeta
-        meta.displayName(legacy("&bTrident"))
-        meta.lore(legacyLines(
-            "&7Right-click to throw ${count} tridents.",
-            "&8Damage: x${damageMultiplier}",
-            "&9Cooldown: ${cooldownMs / 1000}s",
-            "&4Bonus HP¢¾¢¾¢¾: +${bonusHealth}"
-        ))
+        val placeholders = mapOf(
+            "count" to count,
+            "damageMultiplier" to damageMultiplier,
+            "cooldown" to (cooldownMs / 1000),
+            "bonusHealth" to bonusHealth
+        )
+        meta.displayName(legacy(displayName))
+        meta.lore(legacyLines(applyPlaceholders(loreTemplate, placeholders)))
         meta.addEnchant(Enchantment.RIPTIDE, 3, true)
         meta.addEnchant(Enchantment.CHANNELING, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
@@ -167,7 +177,7 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
 
     private fun applyBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
         if (!container.has(baseHealthKey, PersistentDataType.DOUBLE)) {
             container.set(baseHealthKey, PersistentDataType.DOUBLE, attribute.baseValue)
         }
@@ -180,7 +190,7 @@ class TridentAbility(private val plugin: JavaPlugin, config: YamlConfiguration) 
 
     private fun clearBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
         val base = container.get(baseHealthKey, PersistentDataType.DOUBLE)
         if (base != null) {
             attribute.baseValue = base

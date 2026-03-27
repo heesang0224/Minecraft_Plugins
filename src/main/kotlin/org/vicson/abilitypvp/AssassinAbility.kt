@@ -39,6 +39,16 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
     private val bonusHealth = config.getDouble("assassin.bonusHealth", 10.0)
     private val dashCooldowns = mutableMapOf<UUID, Long>()
     private val stealthCooldowns = mutableMapOf<UUID, Long>()
+    private val displayName = config.getString("assassin.displayName") ?: "&4Assassin"
+    private val loreTemplate = config.getStringList("assassin.lore").ifEmpty {
+        listOf(
+            "&7Right-click to dash.",
+            "&7Sneak + right-click to stealth.",
+            "&9Cooldown: {dashCooldown}s",
+            "&9Stealth Cooldown: {stealthCooldown}s",
+            "&4Bonus HP: +{bonusHealth}"
+        )
+    }
 
     override fun createMenuItem(): ItemStack = createAssassinItem()
 
@@ -105,14 +115,13 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
     private fun createAssassinItem(): ItemStack {
         val item = ItemStack(Material.IRON_SWORD)
         val meta = item.itemMeta
-        meta.displayName(legacy("&4Assassin"))
-        meta.lore(legacyLines(
-            "&7Right-click to dash.",
-            "&7Sneak + right-click to stealth.",
-            "&9Cooldown: ${dashCooldownMs / 1000}s",
-            "&9Stealth Cooldown: ${stealthCooldownMs / 1000}s",
-            "&4Bonus HP¢¾¢¾¢¾: +${bonusHealth}"
-        ))
+        val placeholders = mapOf(
+            "dashCooldown" to (dashCooldownMs / 1000),
+            "stealthCooldown" to (stealthCooldownMs / 1000),
+            "bonusHealth" to bonusHealth
+        )
+        meta.displayName(legacy(displayName))
+        meta.lore(legacyLines(applyPlaceholders(loreTemplate, placeholders)))
         meta.addEnchant(Enchantment.SHARPNESS, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         meta.persistentDataContainer.set(itemKey, PersistentDataType.BYTE, 1.toByte())
@@ -212,7 +221,7 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
 
     private fun applyBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
         if (!container.has(baseHealthKey, PersistentDataType.DOUBLE)) {
             container.set(baseHealthKey, PersistentDataType.DOUBLE, attribute.baseValue)
         }
@@ -225,7 +234,7 @@ class AssassinAbility(private val plugin: JavaPlugin, config: YamlConfiguration)
 
     private fun clearBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
         val base = container.get(baseHealthKey, PersistentDataType.DOUBLE)
         if (base != null) {
             attribute.baseValue = base

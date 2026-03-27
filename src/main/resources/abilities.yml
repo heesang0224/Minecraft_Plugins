@@ -2,6 +2,11 @@ ui:
   title: "Choose Ability"
 
 dash:
+  displayName: "&dDASH"
+  lore:
+    - "&7Right-click to dash forward."
+    - "&9Cooldown: {cooldown}s"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 4
   cooldownSeconds: 1
   speedMultiplier: 1.6
@@ -12,6 +17,12 @@ dash:
   bonusHealth: 20.0
 
 sonicBoom:
+  displayName: "&1Sonic Boom"
+  lore:
+    - "&7Right-click to fire a sonic boom."
+    - "&8Damage: {damage}"
+    - "&9Cooldown: {cooldown}s"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 2
   cooldownSeconds: 5
   range: 30.0
@@ -22,6 +33,12 @@ sonicBoom:
   bonusHealth: 40.0
 
 trident:
+  displayName: "&bTrident"
+  lore:
+    - "&7Right-click to throw {count} tridents."
+    - "&8Damage: x{damageMultiplier}"
+    - "&9Cooldown: {cooldown}s"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 0
   cooldownSeconds: 1
   count: 15
@@ -31,6 +48,13 @@ trident:
   bonusHealth: 30.0
 
 assassin:
+  displayName: "&4Assassin"
+  lore:
+    - "&7Right-click to dash."
+    - "&7Sneak + right-click to stealth."
+    - "&9Cooldown: {dashCooldown}s"
+    - "&9Stealth Cooldown: {stealthCooldown}s"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 3
   dashCooldownSeconds: 2
   stealthCooldownSeconds: 5
@@ -42,11 +66,24 @@ assassin:
   bonusHealth: 20.0
 
 plusMace:
+  displayName: "&6Plus Mace"
+  lore:
+    - "&7Right-click to fire a wind charge."
+    - "&9Cooldown: {cooldown}s"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 1
   cooldownSeconds: 1
   bonusHealth: 30.0
 
 shieldDash:
+  displayName: "&6Shield Dash"
+  lore:
+    - "&7Right-click to dash and bash."
+    - "&8Dash Damage: {dashDamage}"
+    - "&8Fangs Damage: {fangsDamage}"
+    - "&8Dash CD: {dashCooldown}s"
+    - "&8Fangs CD: {fangsCooldown}s"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 5
   dashCooldownSeconds: 3
   fangsCooldownSeconds: 5
@@ -61,6 +98,12 @@ shieldDash:
   resistanceAmplifier: 1
 
 bumb:
+  displayName: "&6BUMB"
+  lore:
+    - "&7Right-click to throw explosive TNT."
+    - "&8Impact: x{powerMultiplier}"
+    - "&9Cooldown: {cooldown}s"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 6
   cooldownSeconds: 0
   throwSpeed: 1.6
@@ -71,6 +114,13 @@ bumb:
   bonusHealth: 25.0
 
 dragonbow:
+  displayName: "&5Dragon Bow"
+  arrowDisplayName: "&5Dragon Arrow"
+  lore:
+    - "&7Arrow hit: dragon breath field."
+    - "&8Breath Duration: {breathDuration}s"
+    - "&8Explosion Power: {explosionPower}"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 7
   breathDurationSeconds: 3
   breathDamage: 2.0
@@ -78,6 +128,12 @@ dragonbow:
   bonusHealth: 20.0
 
 bloodfrenzy:
+  displayName: "&4Blood Frenzy"
+  lore:
+    - "&7Melee hit heals {lifeStealPercent}% damage."
+    - "&7At {thresholdPercent}% HP or less: Berserk."
+    - "&8Berserk: Speed {speedLevel}, Strength {strengthLevel}"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 8
   lifeStealPercent: 0.25
   berserkThresholdRatio: 0.5
@@ -86,6 +142,13 @@ bloodfrenzy:
   bonusHealth: 24.0
 
 witherSkull:
+  displayName: "&8Wither Skull"
+  lore:
+    - "&7Right-click to fire a wither skull."
+    - "&8Hit Damage: {hitDamage}"
+    - "&8Wither: {witherDuration}s"
+    - "&9Cooldown: {cooldown}s"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 9
   cooldownSeconds: 0
   projectileSpeed: 1.8
@@ -99,5 +162,29 @@ witherSkull:
   bonusHealth: 24.0
 
 knockbackStick:
+  displayName: "&6Knockback Stick"
+  lore:
+    - "&7Hit enemies with huge knockback."
+    - "&8Knockback V"
+    - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 10
   bonusHealth: 20.0
+
+gravityWell:
+  displayName: "&3Gravity Well"
+  lore:
+    - "&7Right-click to pull nearby enemies."
+    - "&8Range: {radius}"
+    - "&8Damage: {damage}"
+    - "&8Slowness: {slowDuration}s"
+    - "&9Cooldown: {cooldown}s"
+    - "&4Bonus HP: +{bonusHealth}"
+  menuSlot: 11
+  cooldownSeconds: 6
+  radius: 7.0
+  damage: 6.0
+  pullStrength: 1.2
+  lift: 0.25
+  slowDurationSeconds: 2
+  slowAmplifier: 0
+  bonusHealth: 22.0

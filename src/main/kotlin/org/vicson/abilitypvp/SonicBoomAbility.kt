@@ -32,6 +32,15 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
     private val showPotionIcon = config.getBoolean("sonicBoom.showPotionIcon", false)
     private val bonusHealth = config.getDouble("sonicBoom.bonusHealth", 40.0)
     private val cooldowns = mutableMapOf<UUID, Long>()
+    private val displayName = config.getString("sonicBoom.displayName") ?: "&1Sonic Boom"
+    private val loreTemplate = config.getStringList("sonicBoom.lore").ifEmpty {
+        listOf(
+            "&7Right-click to fire a sonic boom.",
+            "&8Damage: {damage}",
+            "&9Cooldown: {cooldown}s",
+            "&4Bonus HP: +{bonusHealth}"
+        )
+    }
 
     override fun createMenuItem(): ItemStack = createSonicBoomItem()
 
@@ -87,13 +96,13 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
     private fun createSonicBoomItem(): ItemStack {
         val item = ItemStack(Material.ECHO_SHARD)
         val meta = item.itemMeta
-        meta.displayName(legacy("&1Sonic Boom"))
-        meta.lore(legacyLines(
-            "&7Right-click to fire a sonic boom.",
-            "&8Damage: ${damage}",
-            "&9Cooldown: ${cooldownMs / 1000}s",
-            "&4Bonus HP¢¾¢¾¢¾: +${bonusHealth}"
-        ))
+        val placeholders = mapOf(
+            "damage" to damage,
+            "cooldown" to (cooldownMs / 1000),
+            "bonusHealth" to bonusHealth
+        )
+        meta.displayName(legacy(displayName))
+        meta.lore(legacyLines(applyPlaceholders(loreTemplate, placeholders)))
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         meta.persistentDataContainer.set(itemKey, PersistentDataType.BYTE, 1.toByte())
@@ -172,7 +181,7 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
 
     private fun applyBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
         if (!container.has(baseHealthKey, PersistentDataType.DOUBLE)) {
             container.set(baseHealthKey, PersistentDataType.DOUBLE, attribute.baseValue)
         }
@@ -185,7 +194,7 @@ class SonicBoomAbility(plugin: JavaPlugin, config: YamlConfiguration) : Ability 
 
     private fun clearBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
         val base = container.get(baseHealthKey, PersistentDataType.DOUBLE)
         if (base != null) {
             attribute.baseValue = base

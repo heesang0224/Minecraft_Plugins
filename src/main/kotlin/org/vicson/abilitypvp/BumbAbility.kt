@@ -35,6 +35,15 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
     private val cooldownMs = config.getLong("bumb.cooldownSeconds", 1L) * 1000L
     private val bonusHealth = config.getDouble("bumb.bonusHealth", 25.0)
     private val cooldowns = mutableMapOf<UUID, Long>()
+    private val displayName = config.getString("bumb.displayName") ?: "&6BUMB"
+    private val loreTemplate = config.getStringList("bumb.lore").ifEmpty {
+        listOf(
+            "&7Right-click to throw explosive TNT.",
+            "&8Impact: x{powerMultiplier}",
+            "&9Cooldown: {cooldown}s",
+            "&4Bonus HP: +{bonusHealth}"
+        )
+    }
 
     init {
         // Registration handled by AbilityManager.
@@ -102,13 +111,13 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
     private fun createBumbItem(): ItemStack {
         val item = ItemStack(Material.TNT)
         val meta = item.itemMeta
-        meta.displayName(legacy("&6BUMB"))
-        meta.lore(legacyLines(
-            "&7Right-click to throw explosive TNT.",
-            "&8Impact: x${powerMultiplier}",
-            "&9Cooldown: ${cooldownMs / 1000}s",
-            "&4Bonus HP¢¾¢¾¢¾: +${bonusHealth}"
-        ))
+        val placeholders = mapOf(
+            "powerMultiplier" to powerMultiplier,
+            "cooldown" to (cooldownMs / 1000),
+            "bonusHealth" to bonusHealth
+        )
+        meta.displayName(legacy(displayName))
+        meta.lore(legacyLines(applyPlaceholders(loreTemplate, placeholders)))
         meta.addEnchant(Enchantment.LUCK_OF_THE_SEA, 1, true)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         meta.persistentDataContainer.set(bumbItemKey, PersistentDataType.BYTE, 1.toByte())
@@ -176,7 +185,7 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
 
     private fun applyBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
         if (!container.has(baseHealthKey, PersistentDataType.DOUBLE)) {
             container.set(baseHealthKey, PersistentDataType.DOUBLE, attribute.baseValue)
         }
@@ -189,7 +198,7 @@ class BumbAbility(private val plugin: JavaPlugin, config: YamlConfiguration) : A
 
     private fun clearBonusHealth(player: Player) {
         val container = player.persistentDataContainer
-        val attribute = player.getAttribute(Attribute.MAX_HEALTH) ?: return
+        val attribute = player.getAttribute(Attribute.GENERIC_MAX_HEALTH) ?: return
         val base = container.get(baseHealthKey, PersistentDataType.DOUBLE)
         if (base != null) {
             attribute.baseValue = base
