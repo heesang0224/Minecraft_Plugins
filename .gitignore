@@ -1,4 +1,20 @@
-# 프로젝트 제외 경로
-/.gradle/
-/build/
-/build/classes/kotlin/main/
+﻿# Gradle / Kotlin
+.gradle/
+.gradle-local/
+build/
+out/
+.kotlin/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Local runtime artifacts (Paper test server)
+run/
+bin/
+
+# OS / logs
+*.log
+Thumbs.db
+Desktop.ini
