@@ -181,8 +181,8 @@ gravityWell:
     - "&4Bonus HP: +{bonusHealth}"
   menuSlot: 11
   cooldownSeconds: 6
-  radius: 7.0
-  damage: 6.0
+  radius: 10.0
+  damage: 10.0
   pullStrength: 1.2
   lift: 0.25
   slowDurationSeconds: 2
